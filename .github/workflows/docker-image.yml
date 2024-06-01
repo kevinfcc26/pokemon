@@ -2,17 +2,21 @@ name: Docker Run Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
+    env:
+      DB_HOST: db
+      DB_NAME: app
+      DB_USER: postgres
+      DB_PASSWORD: mysecretpassword
+      INSTALL_DEV: true
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Run tests
-      run: docker-compose run app sh -c "python manage.py test && flake8"
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: docker-compose run app sh -c "python manage.py test && flake8"
