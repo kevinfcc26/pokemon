@@ -20,8 +20,8 @@ services:
     image: postgres
     restart: always
     env_file:
-      - required: false
-        path: ./.env
+      - path: ./.env
+        required: false
     ports:
       - "5432:5432"
     environment:
