@@ -5,7 +5,7 @@ from core.managers.user_manager import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    """Custom user model that suppors using email instead od username"""
+    """Custom user model that supports using email instead od username"""
 
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
