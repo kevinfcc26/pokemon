@@ -1,14 +1,11 @@
-from rest_framework import authentication, generics, permissions
+from rest_framework import generics, permissions
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
 
+from user.authentication import BearerAuthentication
 from user.serializers.auth_serializer import AuthTokenSerializer
 from user.serializers.user_serializer import UserSerializer
-
-
-class BearerAuthentication(authentication.TokenAuthentication):
-    keyword = "Bearer"
 
 
 class CreateUserView(generics.CreateAPIView):

@@ -25,6 +25,7 @@ urlpatterns = [
         include(
             [
                 path("user/", include("user.urls")),
+                path("", include("pokemon.urls")),
             ]
         ),
     ),
