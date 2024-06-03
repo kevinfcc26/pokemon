@@ -6,7 +6,7 @@ from pokemon.views import PokemonViewSet, TimeApiView
 app_name = "pokemon"
 
 router = DefaultRouter()
-router.register(r"pokemons", PokemonViewSet)
+router.register(r"pokemon", PokemonViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
