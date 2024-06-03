@@ -2,7 +2,7 @@ import os
 
 import requests
 
-from core.exepctions import ProviderException
+from pokemon.exepctions import ProviderException
 
 
 class WorldTimeAPI:

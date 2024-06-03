@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models.pokemon import Pokemon
+from pokemon.models.pokemon import Pokemon
 
 
 class PokemonSerializer(serializers.ModelSerializer):

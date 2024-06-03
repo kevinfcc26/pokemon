@@ -2,10 +2,10 @@ from rest_framework import permissions, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from core.exepctions import ProviderException
-from core.models.pokemon import Pokemon
-from pokemon.adapters.word_time import WorldTimeAdapter
-from pokemon.transport.word_time import WorldTimeAPI
+from pokemon.exepctions import ProviderException
+from pokemon.models.pokemon import Pokemon
+from pokemon_2.adapters.word_time import WorldTimeAdapter
+from pokemon_2.transport.word_time import WorldTimeAPI
 from user.authentication import BearerAuthentication
 
 from .serializers import PokemonSerializer, WorldTimeSerializer

@@ -1,7 +1,7 @@
 from django.urls import include, path, re_path
 from rest_framework.routers import DefaultRouter
 
-from pokemon.views import PokemonViewSet, TimeApiView
+from pokemon_2.views import PokemonViewSet, TimeApiView
 
 app_name = "pokemon"
 

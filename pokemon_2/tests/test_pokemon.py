@@ -1,14 +1,11 @@
-import os
-import tempfile
-
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models.pokemon import Pokemon
-from pokemon.serializers import PokemonSerializer
+from pokemon.models.pokemon import Pokemon
+from pokemon_2.serializers import PokemonSerializer
 
 POKEMON_URL = reverse("pokemon:pokemon-list")
 
