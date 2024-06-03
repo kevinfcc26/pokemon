@@ -1,7 +1,7 @@
-from django.urls import include, path
+from django.urls import include, path, re_path
 from rest_framework.routers import DefaultRouter
 
-from .views import PokemonViewSet
+from pokemon.views import PokemonViewSet, TimeApiView
 
 app_name = "pokemon"
 
@@ -10,4 +10,5 @@ router.register(r"pokemons", PokemonViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
+    re_path(r"^time/(?P<area>[^/]+)/(?P<location>[^/]+)(?:/(?P<region>[^/]+))?/?$", TimeApiView.as_view()),
 ]

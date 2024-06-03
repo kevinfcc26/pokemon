@@ -12,3 +12,10 @@ class PokemonSerializer(serializers.ModelSerializer):
         model = Pokemon
         fields = ("id", "name", "type", "abilities", "description", "is_public", "user_email")
         read_only_fields = ("id", "user")
+
+
+class WorldTimeSerializer(serializers.Serializer):
+    datetime = serializers.DateTimeField()
+    utc_datetime = serializers.DateTimeField()
+    utc_offset = serializers.CharField()
+    timezone = serializers.CharField()

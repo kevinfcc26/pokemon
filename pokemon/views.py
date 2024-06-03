@@ -1,9 +1,13 @@
-from rest_framework import permissions, viewsets
+from rest_framework import permissions, status, viewsets
+from rest_framework.response import Response
 
+from core.exepctions import ProviderException
 from core.models.pokemon import Pokemon
+from pokemon.adapters.word_time import WorldTimeAdapter
+from pokemon.transport.word_time import WorldTimeAPI
 from user.authentication import BearerAuthentication
 
-from .serializers import PokemonSerializer
+from .serializers import PokemonSerializer, WorldTimeSerializer
 
 
 class PokemonViewSet(viewsets.ModelViewSet):
@@ -19,3 +23,21 @@ class PokemonViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+from rest_framework.views import APIView
+
+
+class TimeApiView(APIView):
+    def get(self, request, area, location, region=None):
+        try:
+            world_time_api = WorldTimeAPI()
+            data = world_time_api.get_time(area, location, region)
+
+            adapted_data = WorldTimeAdapter.adapt(data)
+
+            serializer = WorldTimeSerializer(adapted_data)
+
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except ProviderException as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
