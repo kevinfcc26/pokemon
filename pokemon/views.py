@@ -1,5 +1,6 @@
 from rest_framework import permissions, status, viewsets
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from core.exepctions import ProviderException
 from core.models.pokemon import Pokemon
@@ -23,9 +24,6 @@ class PokemonViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-
-from rest_framework.views import APIView
 
 
 class TimeApiView(APIView):
