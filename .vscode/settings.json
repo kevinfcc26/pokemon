@@ -2,11 +2,12 @@
   "pylint.args": [
     "--load-plugins",
     "pylint_django",
-    "--django-settings-module=app.settings"
+    "--django-settings-module=core.settings"
   ],
   "python.testing.pytestArgs": ["./", "--no-cov"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
   "testing.defaultGutterClickAction": "debug",
-  "python.analysis.typeCheckingMode": "off"
+  "python.analysis.typeCheckingMode": "off",
+  "cSpell.words": ["bussiness"]
 }

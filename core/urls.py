@@ -1,5 +1,5 @@
 """
-URL configuration for app project.
+URL configuration for core project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -17,6 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+
+from pokemon.presentation.views.user_view import LoginView, UserViewSet
+
+router = DefaultRouter()
+router.register(r"users", UserViewSet, basename="user")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -24,8 +30,8 @@ urlpatterns = [
         "api/",
         include(
             [
-                path("user/", include("user.urls")),
-                path("", include("pokemon.urls")),
+                path("", include(router.urls)),
+                path("login/", LoginView.as_view(), name="login"),
             ]
         ),
     ),

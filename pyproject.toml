@@ -12,6 +12,8 @@ django = "^5.0.6"
 djangorestframework = "^3.15.1"
 psycopg2 = "^2.9.9"
 requests = "^2.32.3"
+djangorestframework-simplejwt = "^5.3.1"
+passlib = "^1.7.4"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -26,7 +28,7 @@ pytest-django = "^4.8.0"
 pytest-cov = "^5.0.0"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "app.settings"
+DJANGO_SETTINGS_MODULE = "core.settings"
 addopts = "--cov --cov-report xml:coverage.xml -s -p no:warnings --durations=0 --durations-min=1"
 python_files = "tests.py test_*.py *_tests.py"
 
